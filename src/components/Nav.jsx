@@ -5,6 +5,7 @@ const Nav = () => {
 
     const [show, handleShow] = useState(false);
 
+    // handling a scroll background color change
     const handleScroll = () => {
         if(window.scrollY > 100){
             handleShow(true)
