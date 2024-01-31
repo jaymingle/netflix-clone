@@ -1,14 +1,12 @@
+import React from 'react';
+import './Nav.css'
 
+const Nav = () => {
+    return (
+        <div>
 
+        </div>
+    );
+};
 
-// import React from 'react';
-//
-// const MyComponent = () => {
-//     return (
-//         <div>
-//
-//         </div>
-//     );
-// };
-//
-// export default MyComponent;
+export default Nav;
