@@ -1,6 +1,11 @@
+
+.nav_black{
+
+}
 .nav_contents{
     display: flex;
     justify-content: space-between;
+    background-color: black;
 }
 .nav_logo{
     position: fixed;
