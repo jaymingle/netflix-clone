@@ -8,7 +8,11 @@ const Banner = () => {
             backgroundSize: 'cover',
             backgroundPosition: "center center"
         }}>
-            {/*<img src="https://wallpapercave.com/wp/wp1917118.jpg" alt="Netflix Banner Image" className=""/>*/}
+            <div className="banner-contents">
+                <h1 className="banner-title">Movie Name</h1>
+                <div className="banner_buttons"></div>
+
+            </div>
         </header>
     );
 };
