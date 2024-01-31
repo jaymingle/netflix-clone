@@ -1,0 +1,11 @@
+.nav_contents{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_logo{
+    position: fixed;
+    right: 20px;
+}
+.nav_avatar{
+
+}
