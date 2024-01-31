@@ -9,7 +9,7 @@ const Banner = () => {
             backgroundPosition: "center center"
         }}>
             <div className="banner_contents">
-                <h1 className="banner-title">Movie Name</h1>
+                <h1 className="banner_title">Movie Name</h1>
                 <div className="banner_buttons">
                     <button className="banner_button">Play</button>
                     <button className="banner_button">My List</button>
