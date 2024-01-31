@@ -1,9 +1,14 @@
-import React from 'react';
 
-const Nav = () => (
-    <div>
-        The Na
-    </div>
-);
 
-export default Nav;
+
+// import React from 'react';
+//
+// const MyComponent = () => {
+//     return (
+//         <div>
+//
+//         </div>
+//     );
+// };
+//
+// export default MyComponent;
