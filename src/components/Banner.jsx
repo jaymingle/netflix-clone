@@ -10,7 +10,10 @@ const Banner = () => {
         }}>
             <div className="banner-contents">
                 <h1 className="banner-title">Movie Name</h1>
-                <div className="banner_buttons"></div>
+                <div className="banner_buttons">
+                    <button>Play</button>
+                    <button>My List</button>
+                </div>
 
             </div>
         </header>
