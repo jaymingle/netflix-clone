@@ -4,18 +4,19 @@ import './Banner.css'
 const Banner = () => {
     return (
         <header className="banner" style={{
-            backgroundImage: `url("https://cdn.freebiesupply.com/logos/large/2x/netflix-logo-png-transparent.png")`,
+            backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/1200px-Black_flag.svg.png")`,
             backgroundSize: 'cover',
             backgroundPosition: "center center"
         }}>
-            <div className="banner-contents">
+            <div className="banner_contents">
                 <h1 className="banner-title">Movie Name</h1>
                 <div className="banner_buttons">
-                    <button>Play</button>
-                    <button>My List</button>
+                    <button className="banner_button">Play</button>
+                    <button className="banner_button">My List</button>
                 </div>
-
+                <h1 className="banner_description">This is a test description</h1>
             </div>
+            <div className="banner-fadeBottom"/>
         </header>
     );
 };
