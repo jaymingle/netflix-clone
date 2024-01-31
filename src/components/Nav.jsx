@@ -3,7 +3,15 @@ import './Nav.css'
 
 const Nav = () => {
 
+    const [show, handleShow] = useState(false);
 
+    const handleScroll = () => {
+        if(window.scrollY > 100){
+            handleShow(true)
+        }else{
+            handleShow(false)
+        }
+    }
 
 
 
