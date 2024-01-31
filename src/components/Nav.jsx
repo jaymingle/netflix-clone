@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Nav.css'
 
 const Nav = () => {
+
+
+
+
+
     return (
         <div className="nav nav_black">
             <div className="nav_contents">
