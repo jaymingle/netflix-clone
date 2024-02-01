@@ -6,6 +6,8 @@ const Row = ({title, fetchUrl, isLargeRow = false}) => {
 
     const [movies, setMovies] = useState([])
 
+    const baseURL = "https://image.tmdb.org/t/p/original"
+
     useEffect(() =>{
 
         const fetchData = async() => {
@@ -25,7 +27,7 @@ const Row = ({title, fetchUrl, isLargeRow = false}) => {
         <div className="row">
             <h2 className="row-title">{title}</h2>
             {movies.map(movie => (
-
+                <img src={`${baseURL}${isLargeRow ? movie?.poster_path : movie.backdrop_path}`} alt={movie?.name}/>
             ))}
         </div>
     );
