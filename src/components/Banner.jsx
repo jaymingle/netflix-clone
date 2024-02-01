@@ -5,6 +5,8 @@ const Banner = () => {
 
     const API_KEY = import.meta.env.VITE_IMBD_API_KEY
 
+    const [movie, setMovie] = useState([])
+
     useEffect(() =>{
         fetchData()
     }, [])
