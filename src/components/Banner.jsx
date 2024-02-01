@@ -14,6 +14,15 @@ const Banner = () => {
         throw new Error('Error fetching data: ', e)
     }
 
+    //fetching data from imdb api function
+    const fetchData = async() => {
+        try{
+
+        }catch(err){
+
+        }
+    }
+
     //Truncate a description text
     const truncateDescription = (string, n) => {
         return string?.length > n - 1 ? string.substring(0, n - 1) + '...' : string
