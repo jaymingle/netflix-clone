@@ -3,6 +3,10 @@ import './Banner.css'
 
 const Banner = () => {
 
+    useEffect(() =>{
+
+    }, [])
+
     //Truncate a description text
     const truncateDescription = (string, n) => {
         return string?.length > n - 1 ? string.substring(0, n - 1) + '...' : string
