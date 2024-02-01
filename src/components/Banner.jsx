@@ -22,7 +22,11 @@ const Banner = () => {
     const fetchData = async() => {
         try{
             const request = await axios.get(requests.fetchNetflixOriginals)
-            setMovie(request)
+            setMovie(
+                request.data.results[
+                Math.floor(Math.random() * request.data.results - 1)
+                ]
+            )
             console.log(movie)
             // const data = await request.json()
             // console.log(data);

@@ -1,5 +1,5 @@
-// const API_KEY = import.meta.env.VITE_IMBD_API_KEY
-const API_KEY = "c42c8f59d63952f7b8466fd374ff1dfb";
+const API_KEY = import.meta.env.VITE_IMBD_API_KEY
+// const API_KEY = "c42c8f59d63952f7b8466fd374ff1dfb";
 
 const requests = {
     fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
