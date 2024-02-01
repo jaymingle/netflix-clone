@@ -3,9 +3,16 @@ import './Banner.css'
 
 const Banner = () => {
 
+
+
     useEffect(() =>{
 
     }, [])
+
+    //error handling function when fetching data
+    const handleError = e => {
+        throw new Error('Error fetching data: ', e)
+    }
 
     //Truncate a description text
     const truncateDescription = (string, n) => {
