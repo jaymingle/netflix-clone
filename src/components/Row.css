@@ -15,6 +15,11 @@
     transition: transform 450ms;
 }
 
+.row_poster:hover{
+    opacity: 1;
+    transform: scale(1.08);
+}
+
 .row_posters{
     display: flex;
     overflow-y: hidden;
