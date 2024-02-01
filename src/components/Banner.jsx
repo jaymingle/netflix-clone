@@ -3,6 +3,8 @@ import './Banner.css'
 
 const Banner = () => {
 
+    const api_key
+
     useEffect(() =>{
         fetchData()
     }, [])
