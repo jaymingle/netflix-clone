@@ -28,7 +28,6 @@ const Banner = () => {
                 handleError(err)
             }
         }
-
         fetchData()
     }, [])
 
@@ -56,38 +55,19 @@ const Banner = () => {
 
     return (
         <header className="banner" style={{
-            backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/1200px-Black_flag.svg.png")`,
+            // backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_flag.svg/1200px-Black_flag.svg.png")`,
+            backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
             backgroundSize: 'cover',
             backgroundPosition: "center center"
         }}>
             <div className="banner_contents">
-                <h1 className="banner_title">Movie Name</h1>
+                <h1 className="banner_title">{movie.name}</h1>
                 <div className="banner_buttons">
                     <button className="banner_button">Play</button>
                     <button className="banner_button">My List</button>
                 </div>
                 <h1 className="banner_description">
-                    {truncateDescription(`
-                        This is a test description. This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.
-                    `, 150)}
+                    {truncateDescription(`${movie.overview}`, 150)}
                 </h1>
             </div>
             <div className="banner-fadeBottom"/>
