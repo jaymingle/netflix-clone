@@ -4,7 +4,7 @@ import './Banner.css'
 const Banner = () => {
 
     useEffect(() =>{
-
+        fetchData()
     }, [])
 
     //error handling function when fetching data
