@@ -27,6 +27,7 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
     return (
         <div className="row">
             <h2 className="row-title">{title}</h2>
+           <p>{movies}</p>
         </div>
     );
 };
