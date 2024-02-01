@@ -5,8 +5,7 @@ import requests from "../Requests";
 
 const Banner = () => {
 
-    const API_KEY = import.meta.env.VITE_IMBD_API_KEY
-
+    // const API_KEY = import.meta.env.VITE_IMBD_API_KEY
     const [movie, setMovie] = useState([])
 
     useEffect(() =>{
@@ -21,7 +20,6 @@ const Banner = () => {
                         Math.floor(Math.random() * request.data.results.length - 1)
                         ]
                 );
-                console.log(movie)
                 return request;
 
             }catch(err){
