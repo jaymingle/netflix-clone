@@ -3,7 +3,7 @@ import './Banner.css'
 
 const Banner = () => {
 
-    const api_key = import.meta.env.VITE_IMBD_API_KEY
+    const API_KEY = import.meta.env.VITE_IMBD_API_KEY
 
     useEffect(() =>{
         fetchData()
@@ -17,7 +17,8 @@ const Banner = () => {
     //fetching data from imdb api function
     const fetchData = async() => {
         try{
-            const response = await fetch(`https://api.themoviedb.org/3/movie/11?api_key=${api_key}`)
+            // const response = await fetch(`https://api.themoviedb.org/3/movie/11?api_key=${API_KEY}`)
+            const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`)
             const data = await response.json()
             console.log(data);
         }catch(err){
