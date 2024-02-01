@@ -4,7 +4,7 @@ import axios from '../axios'
 import requests from "../Requests";
 const Row = ({title, fetchUrl, isLargeRow}) => {
 
-    const [movies, setMovies] = useState('')
+    const [movies, setMovies] = useState([])
 
     useEffect(() =>{
 
