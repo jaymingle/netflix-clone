@@ -9,7 +9,13 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
     useEffect(() =>{
 
         const fetchData = async() => {
-            console.log("Data fetched")
+            const request = await axios.get(fetchUrl)
+            // console.log(request)
+            setMovies(
+                request.data.results
+            )
+            console.log(movies)
+            return request;
         }
 
         fetchData()
