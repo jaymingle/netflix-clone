@@ -27,7 +27,7 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
     return (
         <div className="row">
             <h2 className="row-title">{title}</h2>
-           <p>{movies && movies.map((movie,key) => <li key={key}>{movie}</li>)}</p>
+
         </div>
     );
 };
