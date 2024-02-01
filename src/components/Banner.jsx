@@ -3,7 +3,8 @@ import './Banner.css'
 
 const Banner = () => {
 
-    const api_key = import.meta.env.IMBD_API_KEY
+    const api_key = import.meta.env.VITE_IMBD_API_KEY
+    console.log(api_key)
 
     useEffect(() =>{
         fetchData()
