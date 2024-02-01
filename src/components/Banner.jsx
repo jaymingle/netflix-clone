@@ -23,6 +23,7 @@ const Banner = () => {
         try{
             const request = await axios.get(requests.fetchNetflixOriginals)
             setMovie(
+                //selecting random movie out of the movie list
                 request.data.results[
                 Math.floor(Math.random() * request.data.results.length - 1)
                 ]
