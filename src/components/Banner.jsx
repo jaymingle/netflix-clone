@@ -22,7 +22,8 @@ const Banner = () => {
     const fetchData = async() => {
         try{
             const request = await axios.get(requests.fetchNetflixOriginals)
-
+            setMovie(request)
+            console.log(movie)
             // const data = await request.json()
             // console.log(data);
         }catch(err){
