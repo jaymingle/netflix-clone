@@ -10,30 +10,31 @@ const Banner = () => {
     const [movie, setMovie] = useState([])
 
     useEffect(() =>{
+
+        //fetching data from imdb api function
+        const fetchData = async() => {
+            try{
+                const request = await axios.get(requests.fetchNetflixOriginals)
+                setMovie(
+                    //selecting random movie out of the movie list
+                    request.data.results[
+                        Math.floor(Math.random() * request.data.results.length - 1)
+                        ]
+                );
+                console.log(movie)
+                return request;
+
+            }catch(err){
+                handleError(err)
+            }
+        }
+
         fetchData()
     }, [])
 
     //error handling function when fetching data
     const handleError = e => {
         throw new Error('Error fetching data: ', e)
-    }
-
-    //fetching data from imdb api function
-    const fetchData = async() => {
-        try{
-            const request = await axios.get(requests.fetchNetflixOriginals)
-            setMovie(
-                //selecting random movie out of the movie list
-                request.data.results[
-                Math.floor(Math.random() * request.data.results.length - 1)
-                ]
-            )
-            console.log(movie)
-            // const data = await request.json()
-            // console.log(data);
-        }catch(err){
-            handleError(err)
-        }
     }
 
     //Using fetch to get the Data
