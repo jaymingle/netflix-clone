@@ -28,6 +28,18 @@ const Banner = () => {
         }
     }
 
+    //Using fetch to get the Data
+    // const fetchData = async() => {
+    //     try{
+    //         // const response = await fetch(`https://api.themoviedb.org/3/movie/11?api_key=${API_KEY}`)
+    //         const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`)
+    //         const data = await response.json()
+    //         console.log(data);
+    //     }catch(err){
+    //         handleError(err)
+    //     }
+    // }
+
     //Truncate a description text
     const truncateDescription = (string, n) => {
         return string?.length > n - 1 ? string.substring(0, n - 1) + '...' : string
