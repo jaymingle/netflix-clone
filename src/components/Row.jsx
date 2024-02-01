@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import "./Row.css"
 import axios from '../axios'
 import requests from "../Requests";
-const Row = ({title, fetchUrl, isLargeRow}) => {
+const Row = ({title, fetchUrl, isLargeRow = false}) => {
 
     const [movies, setMovies] = useState([])
 
@@ -10,7 +10,6 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
 
         const fetchData = async() => {
             const request = await axios.get(fetchUrl)
-            // console.log(request)
             setMovies(
                 request.data.results
             )
@@ -20,7 +19,7 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
 
         fetchData()
 
-    }, [])
+    }, [fetchUrl])
 
 
 
