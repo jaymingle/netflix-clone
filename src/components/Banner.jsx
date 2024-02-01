@@ -17,7 +17,7 @@ const Banner = () => {
     //fetching data from imdb api function
     const fetchData = async() => {
         try{
-            const response = await fetch(`https://api.themoviedb.org/3/movie/11?api_key=c42c8f59d63952f7b8466fd374ff1dfb`)
+            const response = await fetch(`https://api.themoviedb.org/3/movie/11?api_key=${api_key}`)
             const data = await response.json()
             console.log(data);
         }catch(err){
