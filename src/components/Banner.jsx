@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Banner.css'
+import axios from "../axios"
+import requests from "../Requests";
 
 const Banner = () => {
 
@@ -19,10 +21,10 @@ const Banner = () => {
     //fetching data from imdb api function
     const fetchData = async() => {
         try{
-            // const response = await fetch(`https://api.themoviedb.org/3/movie/11?api_key=${API_KEY}`)
-            const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`)
-            const data = await response.json()
-            console.log(data);
+            const request = await axios.get(requests.fetchNetflixOriginals)
+
+            // const data = await request.json()
+            // console.log(data);
         }catch(err){
             handleError(err)
         }
