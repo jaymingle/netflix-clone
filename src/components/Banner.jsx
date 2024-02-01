@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Banner.css'
 
 const Banner = () => {
@@ -21,7 +21,8 @@ const Banner = () => {
                     <button className="banner_button">My List</button>
                 </div>
                 <h1 className="banner_description">
-                    This is a test description. This is a test description.
+                    {truncateDescription(`
+                        This is a test description. This is a test description.
                     This is a test description.This is a test description.This is a test description.
                     This is a test description.This is a test description.This is a test description.
                     This is a test description.This is a test description.This is a test description.
@@ -39,7 +40,9 @@ const Banner = () => {
                     This is a test description.This is a test description.This is a test description.
                     This is a test description.This is a test description.This is a test description.
                     This is a test description.This is a test description.This is a test description.
-                    This is a test description.This is a test description.This is a test description.</h1>
+                    This is a test description.This is a test description.This is a test description.
+                    `, 150)}
+                </h1>
             </div>
             <div className="banner-fadeBottom"/>
         </header>
