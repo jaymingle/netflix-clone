@@ -16,10 +16,9 @@ const Banner = () => {
     const fetchData = async() => {
         try{
             const response = await fetch('https://api.themoviedb.org/3/movie/11?api_key=c42c8f59d63952f7b8466fd374ff1dfb')
-                console.log(response)
-            )
+            console.log(response);
         }catch(err){
-
+            handleError(err)
         }
     }
 
