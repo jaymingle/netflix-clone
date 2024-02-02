@@ -34,3 +34,8 @@
 .row_posterLarge{
     max-height: 250px;
 }
+
+.row_posterLarge:hover{
+    opacity: 1;
+    transform: scale(1.09);
+}
