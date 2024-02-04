@@ -19,8 +19,6 @@ const Row = ({title, fetchUrl, isLargeRow = false}) => {
 
     }, [fetchUrl])
 
-    console.log(movies)
-
 
     return (
         <div className="row">
