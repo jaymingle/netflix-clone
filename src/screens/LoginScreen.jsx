@@ -13,7 +13,7 @@ const LoginScreen = () => {
                 <>
                     <h1>Unlimited films, programmes and more.</h1>
                     <h2>Watch anywhere. cancel at anytime</h2>
-                    <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                    <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
                 </>
             </div>
 
