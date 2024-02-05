@@ -51,6 +51,7 @@
     top: 30%;
     margin: 0 auto;
     text-align: center;
+    width: 100%;
 }
 
 .loginScreen_body > h1{
