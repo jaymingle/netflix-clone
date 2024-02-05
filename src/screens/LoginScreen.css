@@ -14,3 +14,9 @@
     object-fit: contain;
     padding-left: 20px;
 }
+
+.loginScreen_button{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
