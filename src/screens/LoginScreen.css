@@ -42,3 +42,20 @@
     border: none;
     cursor: pointer;
 }
+
+.loginScreen_body{
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    padding: 20px;
+    top: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.loginScreen_body > h1{
+    font-size: 3.125rem;
+    margin-bottom: 20px;
+
+}
