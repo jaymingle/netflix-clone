@@ -3,8 +3,8 @@ import "./LoginScreen.css"
 
 const LoginScreen = () => {
     return (
-        <div>
-
+        <div className="loginScreen">
+            <div className="loginScreen_background"></div>
         </div>
     );
 };
