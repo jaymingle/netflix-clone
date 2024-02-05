@@ -1,5 +1,6 @@
 .loginScreen{
-
+    position: relative;
+    height: 100%;
 }
 
 .loginScreen_background{
@@ -7,5 +8,9 @@
 }
 
 .loginScreen_logo{
-
+    position: fixed;
+    width: 150px;
+    left: 0;
+    object-fit: contain;
+    padding-left: 20px;
 }
