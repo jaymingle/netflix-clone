@@ -78,6 +78,11 @@
 /*    justify-content: center;*/
 /*}*/
 
+.loginScreen_input form{
+    display: flex;
+    justify-content: center;
+}
+
 .loginScreen_input > form > input{
     padding: 10px;
     outline-width: 0;
@@ -85,7 +90,6 @@
     width: 30%;
     border: none;
     max-width: 600px;
-
 }
 
 .loginScreen_getStarted{
@@ -94,4 +98,6 @@
     color: #ffffff;
     background-color: #e50914;
     border: none;
+    font-weight: 600;
+    cursor: pointer;
 }
