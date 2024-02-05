@@ -6,13 +6,24 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
 
+    const user = null
+
   return (
     <div className="app">
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<HomeScreen/>}/>
-                {/*<Route path="test" element={<TheRouter/>}/>*/}
-            </Routes>
+
+            {
+                !user ? (
+                    <Login/>
+                    ) : (
+                        <Routes>
+                            <Route path="/" element={<HomeScreen/>}/>
+                            {/*<Route path="test" element={<TheRouter/>}/>*/}
+                        </Routes>
+                    )
+
+            }
+
         </BrowserRouter>
 
     </div>
