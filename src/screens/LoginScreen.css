@@ -77,3 +77,12 @@
 /*    align-items: center;*/
 /*    justify-content: center;*/
 /*}*/
+
+.loginScreen_input > form > input{
+    padding: 10px
+
+}
+
+.loginScreen_getStarted{
+
+}
