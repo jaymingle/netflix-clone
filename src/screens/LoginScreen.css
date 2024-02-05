@@ -79,10 +79,18 @@
 /*}*/
 
 .loginScreen_input > form > input{
-    padding: 10px
+    padding: 10px;
+    outline-width: 0;
+    height: 30px;
+    width: 30%;
+    border: none;
+    max-width: 600px;
 
 }
 
 .loginScreen_getStarted{
-
+    padding: 16px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #e50914;
 }
