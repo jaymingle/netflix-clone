@@ -10,9 +10,7 @@ const LoginScreen = () => {
                 <div className="loginScreen_gradient"/>
             </div>
             <div className="loginScreen_body">
-                <>
                     <h1>Unlimited films, programmes and more.</h1>
-                </>
             </div>
 
         </div>
