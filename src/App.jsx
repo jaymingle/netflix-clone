@@ -1,15 +1,8 @@
 
 import './App.css'
 import HomeScreen from "./components/HomeScreen.jsx";
-
-import {createBrowserRouter, RouterProvider, BrowserRouter, Route, Link, Routes,} from "react-router-dom";
-import TheRouter from "./components/TheRouter.jsx";
-
-const router = createBrowserRouter([
-    {
-
-    }
-])
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+// import TheRouter from "./components/TheRouter.jsx";
 
 function App() {
 
@@ -18,7 +11,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomeScreen/>}/>
-                <Route path="test" element={<TheRouter/>}/>
+                {/*<Route path="test" element={<TheRouter/>}/>*/}
             </Routes>
         </BrowserRouter>
 
