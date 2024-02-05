@@ -4,6 +4,12 @@ import HomeScreen from "./components/HomeScreen.jsx";
 
 import {createBrowserRouter, RouterProvider, Route, Link,} from "react-router-dom";
 
+const router = createBrowserRouter([
+    {
+
+    }
+])
+
 function App() {
 
   return (
