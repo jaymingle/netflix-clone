@@ -1,7 +1,7 @@
 import './HomeScreen.css'
-import Nav from "./Nav.jsx";
-import Banner from "./Banner.jsx";
-import Row from "./Row.jsx";
+import Nav from "../components/Nav.jsx";
+import Banner from "../components/Banner.jsx";
+import Row from "../components/Row.jsx";
 import requests from "../Requests.js";
 
 const HomeScreen =  () => {

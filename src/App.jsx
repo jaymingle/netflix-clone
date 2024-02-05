@@ -1,6 +1,6 @@
 
 import './App.css'
-import HomeScreen from "./components/HomeScreen.jsx";
+import HomeScreen from "./screens/HomeScreen.jsx";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 // import TheRouter from "./components/TheRouter.jsx";
 
