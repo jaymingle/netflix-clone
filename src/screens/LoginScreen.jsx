@@ -10,7 +10,6 @@ const LoginScreen = () => {
                 <div className="loginScreen_gradient"/>
             </div>
             <div className="loginScreen_body">
-                <>
                     <h1>Unlimited films, programmes and more.</h1>
                     <h2>Watch anywhere. cancel at anytime</h2>
                     <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
@@ -20,8 +19,6 @@ const LoginScreen = () => {
                             <button className="loginScreen_getStarted">GET STARTED</button>
                         </form>
                     </div>
-
-                </>
             </div>
 
         </div>
