@@ -2,6 +2,7 @@
 import './App.css'
 import HomeScreen from "./screens/HomeScreen.jsx";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
+import LoginScreen from "./screens/LoginScreen.jsx";
 // import TheRouter from "./components/TheRouter.jsx";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
 
             {
                 !user ? (
-                    <Login/>
+                    <LoginScreen/>
                     ) : (
                         <Routes>
                             <Route path="/" element={<HomeScreen/>}/>
