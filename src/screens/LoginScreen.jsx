@@ -3,7 +3,7 @@ import "./LoginScreen.css"
 
 const LoginScreen = () => {
 
-    const [signIn, setSignIn] = useState(true)
+    const [signIn, setSignIn] = useState(false)
 
     const signInHandler = () => {
         setSignIn(value => !value)
@@ -18,17 +18,30 @@ const LoginScreen = () => {
                 <button className="loginScreen_button" onClick={signInHandler}>Sign In</button>
                 <div className="loginScreen_gradient"/>
             </div>
-            <div className="loginScreen_body">
+            {
+                signIn && <div className="loginScreen_body">
                     <h1>Unlimited films, programmes and more.</h1>
                     <h2>Watch anywhere. cancel at anytime</h2>
                     <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
                     <div className="loginScreen_input">
                         <form>
                             <input type="email" placeholder="Email Address"/>
-                            <button className="loginScreen_getStarted">GET STARTED</button>
+                            <button className="loginScreen_getStarted" onClick={signInHandler}>GET STARTED</button>
                         </form>
                     </div>
-            </div>
+                </div>            <div className="loginScreen_body">
+                <h1>Unlimited films, programmes and more.</h1>
+                <h2>Watch anywhere. cancel at anytime</h2>
+                <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+                <div className="loginScreen_input">
+                <form>
+                <input type="email" placeholder="Email Address"/>
+                <button className="loginScreen_getStarted" onClick={signInHandler}>GET STARTED</button>
+</form>
+</div>
+</div>
+
+            }
 
         </div>
     );
