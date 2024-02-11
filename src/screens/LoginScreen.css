@@ -70,15 +70,6 @@
     font-weight: 400;
 }
 
-
-/*.loginScreen_body_center{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*}*/
-
-
 .loginScreen_input{
     margin: 20px;
 }
