@@ -14,7 +14,8 @@ const SignUpScreen = () => {
 
     const signInHandler = e => {
         e.preventDefault();
-        auth.createUserWithEmailAndPassword(usermail,userpassword)
+        auth
+            .createUserWithEmailAndPassword(usermail,userpassword)
             .then( userAuth => console.log(userAuth) )
             .catch( e => console.error(e))
 
