@@ -10,7 +10,6 @@ const SignUpScreen = () => {
     return (
         <div className="signupScreen">
             <h1>Sign Up</h1>
-
             <form onSubmit={formSubmitHandler}>
                 <input type="email" placeholder="Email"/>
                 <input type="password" placeholder="Password"/>
