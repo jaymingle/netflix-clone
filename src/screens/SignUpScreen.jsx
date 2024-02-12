@@ -15,6 +15,7 @@ const SignUpScreen = () => {
                 <input type="password" placeholder="Password"/>
                 <button type="submit">Sign In</button>
             </form>
+            <h4>New to Netflix? <span>Sign up now.</span></h4>
         </div>
     );
 };
