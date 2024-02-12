@@ -4,7 +4,7 @@ import './SignUpScreen.css'
 const SignUpScreen = () => {
     return (
         <div>
-            <h1>Welcome to Sign Up Screen</h1>
+            <h1 style={{color: 'white'}}>Welcome to Sign Up Screen</h1>
         </div>
     );
 };
