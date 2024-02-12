@@ -16,6 +16,12 @@ const SignUpScreen = () => {
 
     const signInHandler = e => {
         e.preventDefault();
+
+        if(userpassword.length <= 6){
+            alert('Password must be at least 6 characters')
+            return
+        }
+
         createUserWithEmailAndPassword(auth, usermail,userpassword)
             .then( (authUser) => console.log(authUser) )
             .catch( e => console.error(e))
