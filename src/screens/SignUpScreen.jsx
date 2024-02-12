@@ -8,6 +8,14 @@ const SignUpScreen = () => {
 
     }
 
+    const register = e => {
+        e.preventDefault();
+    }
+
+    const signIn = e => {
+        e.preventDefault();
+    }
+
     return (
         <div className="signupScreen">
             <h1>Sign In</h1>
