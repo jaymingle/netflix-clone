@@ -2,10 +2,18 @@ import React from 'react';
 import './SignUpScreen.css'
 
 const SignUpScreen = () => {
-    return (
-        <div>
-            <h1 style={{color: 'white'}}>Welcome to Sign Up Screen</h1>
 
+    const formSubmitHandler = () => {
+
+    }
+
+    return (
+        <div className="signupScreen">
+            <form onSubmit={formSubmitHandler}></form>
+            <h1>Sign Up</h1>
+            <input type="email" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+            <button type="submit">Sign In</button>
         </div>
     );
 };
