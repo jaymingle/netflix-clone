@@ -17,8 +17,13 @@
     margin-top: 15px;
 }
 
-.signupScreen h4 > span{
+.signupScreen_grey{
     color: grey;
+}
+
+.signupScreen_link:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .signupScreen_form{
