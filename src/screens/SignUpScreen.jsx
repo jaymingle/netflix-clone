@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './SignUpScreen.css'
+import {auth} from "../../firebase.js";
 
 const SignUpScreen = () => {
 
@@ -13,8 +14,9 @@ const SignUpScreen = () => {
 
     const signInHandler = e => {
         e.preventDefault();
-        alert('Signing in')
-        console.log(usermail, userpassword)
+        auth.createUserWithEmailAndPassword(usermail,userpassword)
+            .then( userAuth => console.log(userAuth) )
+            .catch( e => console.error(e))
 
     }
 
