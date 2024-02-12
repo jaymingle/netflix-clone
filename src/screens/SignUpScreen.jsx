@@ -9,8 +9,8 @@ const SignUpScreen = () => {
 
     return (
         <div className="signupScreen">
-            <h1>Sign Up</h1>
-            <form onSubmit={formSubmitHandler}>
+            <h1>Sign In</h1>
+            <form onSubmit={formSubmitHandler} className="signupScreen_form">
                 <input type="email" placeholder="Email"/>
                 <input type="password" placeholder="Password"/>
                 <button type="submit">Sign In</button>
