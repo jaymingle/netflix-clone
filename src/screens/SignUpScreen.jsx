@@ -20,6 +20,8 @@ const SignUpScreen = () => {
             .then( (authUser) => console.log(authUser) )
             .catch( e => console.error(e))
 
+        setUsermail('')
+        setUserpassword('')
     }
 
     return (
