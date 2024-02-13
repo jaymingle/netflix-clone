@@ -5,12 +5,16 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {auth} from "../firebase.js";
+import {useDispatch} from "react-redux";
+import {logout, login} from "./features/userSlice";
+
 
 // import TheRouter from "./components/TheRouter.jsx";
 
 function App() {
 
     const user = null
+    const dispatch = useDispatch()
 
     useEffect(() => {
 
@@ -18,10 +22,15 @@ function App() {
 
        const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
             if(userAuth){
+                dispatch(login({
+                    uid: userAuth.uid,
+                    email: userAuth.email
+                }))
                 console.log("Logged In")
                 console.log(userAuth)
             }else{
                 console.log("Logged Out")
+                dispatch(logout)
             }
         })
 
