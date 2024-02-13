@@ -27,6 +27,9 @@ const SignUpScreen = () => {
 
     const signInHandler = e => {
         e.preventDefault();
+        signInWithEmailAndPassword(auth, usermail, userpassword)
+            .then( (authUser) => console.log('Logged In', authUser))
+            .catch( e => console.error(e))
     }
 
     return (
