@@ -40,9 +40,7 @@ const SignUpScreen = () => {
                 <input type="password" onChange={e => setUserpassword(e.target.value)} value={userpassword} placeholder="Password" required/>
                 <button type="submit">Sign In</button>
             </form>
-            <div className="signupScreen_form_buttons">
-                <button className="signupButton">Sign Up</button>
-            </div>
+                <button className="signupButton" onClick={registerInHandler}>Register</button>
             <h4> <span className="signupScreen_grey">New to Netflix?</span> <span className="signupScreen_link" onClick={registerInHandler}> Sign up now. </span></h4>
         </div>
     );
