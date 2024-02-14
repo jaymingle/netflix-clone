@@ -3,6 +3,7 @@ import Nav from "./Nav.jsx";
 import {useSelector} from "react-redux";
 import {selectUser} from "../features/userSlice.js";
 import {auth} from "../../firebase";
+import './ProfileScreen.css'
 
 const ProfileScreen = () => {
     const user = useSelector(selectUser)
