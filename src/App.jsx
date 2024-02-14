@@ -32,7 +32,7 @@ function App() {
                 console.log(userAuth)
             }else{
                 console.log("Logged Out")
-                dispatch(logout)
+                dispatch(logout())
                 // navigate('/')
             }
         })
@@ -48,7 +48,7 @@ function App() {
         //     }
         // })
 
-    }, [])
+    }, [dispatch])
 
 
   return (
