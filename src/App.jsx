@@ -7,6 +7,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {auth} from "../firebase.js";
 import {useDispatch, useSelector} from "react-redux";
 import {logout, login, selectUser} from "./features/userSlice";
+import ProfileScreen from "./components/ProfileScreen.jsx";
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
                     ) : (
                         <Routes>
                             <Route path="/" element={<HomeScreen/>}/>
-                            <Route path="test" element={<TheRouter/>}/>
+                            <Route path="profile" element={<ProfileScreen/>}/>
                         </Routes>
                     )
 
