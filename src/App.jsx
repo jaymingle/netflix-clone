@@ -5,15 +5,13 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {auth} from "../firebase.js";
-import {useDispatch} from "react-redux";
-import {logout, login} from "./features/userSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {logout, login, selectUser} from "./features/userSlice";
 
-
-// import TheRouter from "./components/TheRouter.jsx";
 
 function App() {
 
-    const user = null
+    const user = useSelector(selectUser)
     const dispatch = useDispatch()
 
     useEffect(() => {
