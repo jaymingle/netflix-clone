@@ -56,7 +56,7 @@ function App() {
                     ) : (
                         <Routes>
                             <Route path="/" element={<HomeScreen/>}/>
-                            {/*<Route path="test" element={<TheRouter/>}/>*/}
+                            <Route path="test" element={<TheRouter/>}/>
                         </Routes>
                     )
 
