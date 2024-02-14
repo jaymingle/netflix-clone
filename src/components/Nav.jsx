@@ -25,7 +25,7 @@ const Nav = () => {
     return (
         <div className={`nav ${show && 'nav_black'}`}>
             <div className="nav_contents">
-                <img className="nav_logo" src="https://pngimg.com/uploads/netflix/netflix_PNG17.png" alt="Netflix logo"/>
+                <img onClick={() => navigate('/')} className="nav_logo" src="https://pngimg.com/uploads/netflix/netflix_PNG17.png" alt="Netflix logo"/>
                 <img onClick={() => navigate('/profile')} className="nav_avatar" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.webp" alt="User Avatar"/>
             </div>
         </div>

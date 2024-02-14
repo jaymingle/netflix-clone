@@ -1,9 +1,10 @@
 import React from 'react';
+import Nav from "./Nav.jsx";
 
 const ProfileScreen = () => {
     return (
         <div className="profileScreen">
-            <h1>I am the Profile Screen</h1>
+            <Nav/>
         </div>
     );
 };
