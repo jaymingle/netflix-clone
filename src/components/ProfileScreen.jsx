@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfileScreen = () => {
     return (
-        <div>
+        <div className="profileScreen">
             <h1>I am the Profile Screen</h1>
         </div>
     );
