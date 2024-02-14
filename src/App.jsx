@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import './App.css'
 import HomeScreen from "./screens/HomeScreen.jsx";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {auth} from "../firebase.js";
@@ -14,6 +14,9 @@ function App() {
 
     const user = useSelector(selectUser)
     const dispatch = useDispatch()
+
+    // const navigate = useNavigate()
+
 
     useEffect(() => {
 
@@ -30,6 +33,7 @@ function App() {
             }else{
                 console.log("Logged Out")
                 dispatch(logout)
+                // navigate('/')
             }
         })
 
