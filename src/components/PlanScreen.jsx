@@ -26,7 +26,9 @@ const PlanScreen = () => {
                 })
                 setProducts(products)
         })
-    },[products])
+    },[])
+
+    console.log(products)
 
     return (
         <div className="planScreen">
