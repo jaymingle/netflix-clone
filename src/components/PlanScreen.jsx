@@ -120,7 +120,7 @@ const PlanScreen = () => {
             console.log('Fetching products...');
             try {
                 console.log('Hollaaaa')
-                const q = query(collectionGroup(db, 'products'), where('active', '==', true));
+                const q = query(collection(db, 'stripe-products'));
                 const querySnapshot = await getDocs(q)
                 console.log('getData')
                 console.log('Query snapshot:', querySnapshot.docs.length);
