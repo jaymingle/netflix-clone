@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './PlanScreen.css'
 import db, {empty_db} from "../../firebase.js";
-import { collection, query, where, doc, getDocs, getDoc, collectionGroup } from 'firebase/firestore';
+import { collection, query, where, doc, getDocs, getDoc, collectionGroup, getFirestore } from 'firebase/firestore';
+
 
 
 
@@ -113,38 +114,28 @@ const PlanScreen = () => {
         //
         // fetchProducts();
 
+
+
         const fetchProducts = async () => {
             console.log('Fetching products...');
             try {
-                // const q = query(collection(db, 'products'), where('active', '==', true));
-                // const querySnapshot = await getDocs(q);
                 console.log('Hollaaaa')
-
-                // const querySnapshot = await query(collection(db, 'products'), where('active', '==', true))
-                // const querySnapshot = await getDocs(q);
-
-                const q = query(collection(db, 'products'), where('active', '==', true));
+                const q = query(collectionGroup(db, 'products'), where('active', '==', true));
                 const querySnapshot = await getDocs(q)
-
                 console.log('getData')
-
                 console.log('Query snapshot:', querySnapshot.docs.length);
-
                 const productsData = {};
                 querySnapshot.forEach((productDoc) => {
                     productsData[productDoc.id] = productDoc.data();
                 });
-
                 console.log('Products data:', productsData);
-
-                // Update state with products data
                 setProducts(productsData);
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
-
         fetchProducts()
+
 
 //         const q = query(
 //             collection(db, 'products'),
@@ -228,6 +219,60 @@ const PlanScreen = () => {
 //         }
 //
 //         fetchProducts()
+
+// // Initialize Firestore
+//         const firestore = getFirestore();
+//
+// // Query for active products
+//         const activeProductsQuery = query(
+//             collectionGroup(firestore, 'products'),
+//             where('active', '==', true)
+//         );
+//
+// // Retrieve products and handle prices
+//         getDocs(activeProductsQuery)
+//             .then((querySnapshot) => {
+//                 const products = {};
+//
+//                 querySnapshot.forEach((productDoc) => {
+//                     const productId = productDoc.id;
+//                     const productData = productDoc.data();
+//
+//                     // Handle nested collection (prices) based on your requirements:
+//                     // Option 1: Retrieve first price only:
+//                     const priceCollectionRef = collection(productDoc.ref, 'prices');
+//                     getDocs(priceCollectionRef)
+//                         .then((priceSnapshot) => {
+//                             if (priceSnapshot.size > 0) {
+//                                 const priceDoc = priceSnapshot.docs[0];
+//                                 productData.price = {
+//                                     priceId: priceDoc.id,
+//                                     ...priceDoc.data(),
+//                                 };
+//                             } else {
+//                                 // Handle no prices case
+//                             }
+//                             products[productId] = productData;
+//                         })
+//                         .catch((error) => {
+//                             console.error('Error retrieving price:', error);
+//                             // Handle errors gracefully
+//                         });
+//
+//                     // Option 2: Retrieve all prices as an array:
+//                     // Use getDocs(priceCollectionRef) and iterate over priceSnapshot.docs
+//                     // Add each price as an object to productData.prices = [] array
+//
+//                     // Update your state or display products as needed:
+//                     setProducts(products);
+//                 });
+//             })
+//             .catch((error) => {
+//                 console.error('Error retrieving active products:', error);
+//                 // Handle errors gracefully
+//             });
+
+
 
     },[db])
 
