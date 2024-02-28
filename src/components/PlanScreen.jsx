@@ -16,18 +16,61 @@ const PlanScreen = () => {
     const [subscription, setSubscription] = useState(null)
 
     useEffect(() => {
-        db.collection('customers')
-            .doc(user.uid)
-            .collection('subscriptions')
-            .get()
-            .then(querySnapshot => {
-                querySnapshot.forEach(async subscription => {
-                    console.log('Subscription', subscription)
-                    // setSubscription({
-                    //
-                    // })
-                })
-            })
+
+        const fetchSubscriptions = async () => {
+
+            try {
+                const subscriptionsCollectionRef = collection(doc(db, 'customers', user.uid), 'subscriptions');
+                const subscriptionsSnapshot = await getDocs(subscriptionsCollectionRef);
+
+                subscriptionsSnapshot.forEach(async (subscriptionDoc) => {
+                    const subscriptionData = subscriptionDoc.data();
+                    setSubscription({
+                        role: subscriptionData.role,
+                        current_period_start: subscriptionData.current_period_start.seconds,
+                        current_period_end: subscriptionData.current_period_end.seconds
+                    })
+                    // // Fetch the subscription data including cancel_at_period_end field
+                    console.log('Subscription:', subscriptionData);
+                });
+            } catch (error) {
+                console.error('Error fetching subscriptions:', error);
+            }
+
+            // try {
+            //     const subscriptionsCollectionRef = collection(doc(db, 'customers', user.uid), 'subscriptions');
+            //     const subscriptionsSnapshot = await getDocs(subscriptionsCollectionRef);
+            //
+            //     subscriptionsSnapshot.forEach((subscriptionDoc) => {
+            //         // setSubscription({
+            //         //     role: subscriptionDoc.role,
+            //         //     current_period_end: subscriptionDoc.canceled_at
+            //         // })
+            //         console.log('Subscription:', subscriptionDoc.data());
+            //
+            //         // console.log('Subscription Details', subscription.role)
+            //         // console.log('Subscription', subscriptionDoc.id, subscriptionDoc.data());
+            //         // You can set the subscription state or perform any other actions here
+            //     });
+            // } catch (error) {
+            //     console.error('Error fetching subscriptions:', error);
+            // }
+        };
+
+        fetchSubscriptions()
+
+        // db.collection('customers')
+        //     .doc(user.uid)
+        //     .collection('subscriptions')
+        //     .get()
+        //     .then(querySnapshot => {
+        //         querySnapshot.forEach(async subscription => {
+        //             console.log('Subscription', subscription)
+        //             // setSubscription({
+        //             //
+        //             // })
+        //         })
+        //     })
     }, [])
 
     useEffect(() => {
