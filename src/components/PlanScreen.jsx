@@ -50,8 +50,8 @@ const PlanScreen = () => {
                 // Set the products state with the fetched data
                 setProducts(productsData);
 
-                const priceId = Object.keys(productsData.prices)[0]; // Get the first key from the prices object
-                console.log("Price ID:", priceId);
+                // const priceId = Object.keys(productsData.prices)[0]; // Get the first key from the prices object
+                // console.log("Price ID:", priceId);
 
             } catch (error) {
                 console.error('Error fetching products:', error);
