@@ -27,6 +27,8 @@
     background-color: gray !important;
 }
 
-.planScreen_info{
-
+.renewal-date{
+    margin-top: 10px;
+    font-weight: 600;
+    color: saddlebrown;
 }

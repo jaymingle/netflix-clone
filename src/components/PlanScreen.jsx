@@ -126,10 +126,12 @@ const PlanScreen = () => {
 
     return (
         <div className="planScreen">
+            {subscription && <p className="renewal-date">Renew Date: {new Date(subscription?.current_period_end * 1000).toLocaleDateString()}</p>}
+
+
             {Object.entries(products).map(([productId, productData]) => {
 
                 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role)
-
                 return (
                     <div key={productId} className={`planScreen_plan`}>
                         <div className="planScreen_info">
