@@ -69,6 +69,20 @@ const PlanScreen = () => {
                 success_url: window.location.origin,
                 cancel_url: window.location.origin,
             })
+
+        docRef.onSnapshot(async(snap) => {
+            const {error, sessionId} = snap.data();
+
+            if(error) {
+                alert('An error occurred: ', error.message)
+            }
+
+            if(sessionId) {
+
+            }
+
+        })
+
     }
 
     return (
