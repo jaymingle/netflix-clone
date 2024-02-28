@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './PlanScreen.css'
 import db, {empty_db} from "../../firebase.js";
-import { collection, query, where, doc, getDocs, getDoc, collectionGroup, getFirestore } from 'firebase/firestore';
+import { collection, query, where, doc, getDocs, getDoc, collectionGroup, getFirestore, onSnapshot, addDoc } from 'firebase/firestore';
 import {useSelector} from "react-redux";
 import {selectUser} from "../features/userSlice";
 import {loadStripe} from "@stripe/stripe-js";
@@ -49,48 +49,52 @@ const PlanScreen = () => {
 
                 // Set the products state with the fetched data
                 setProducts(productsData);
+
+                const priceId = Object.keys(productsData.prices)[0]; // Get the first key from the prices object
+                console.log("Price ID:", priceId);
+
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
 
+
         fetchProducts()
 
     },[db])
 
+
     console.log(products)
 
-    const loadCheckout = async(priceId) => {
-        // console.log('My Price ID: ', priceId)
-        try{
-            const docRef = await db.collection('customers')
-                .doc(user.uid)
-                .collection("checkout_sessions")
-                .add({
+    const loadCheckout = async (priceId) => {
+        try {
+            if (priceId) { // Ensure priceId is defined
+                const docRef = await addDoc(collection(doc(db, 'customers', user.uid), 'checkout_sessions'), {
                     price: priceId,
                     success_url: window.location.origin,
                     cancel_url: window.location.origin,
-                })
+                });
 
-            docRef.onSnapshot(async(snap) => {
-                const {error, sessionId} = snap.data();
+                onSnapshot(docRef, async (snap) => {
+                    const { error, sessionId } = snap.data();
 
-                if(error) {
-                    alert('An error occurred: ', error.message)
-                }
+                    if (error) {
+                        alert('An error occurred: ' + error.message);
+                    }
 
-                if(sessionId) {
-                    const stripe = await loadStripe("pk_test_51HwohvG5U8HFtRgC2HpETspfFOUrL2hnwlFvV1scwwgOQDFNkrkNjltrwNS9ED0BfaoOs1tw8nJEU7cUbNKV5Ipa00RrnGPc8t")
-                    stripe.redirectToCheckout({sessionId})
-                }
-
-            })
-        }catch(err){
-            console.log("Error adding checkout session: ", error)
+                    if (sessionId) {
+                        const stripe = await loadStripe('pk_test_51HwohvG5U8HFtRgC2HpETspfFOUrL2hnwlFvV1scwwgOQDFNkrkNjltrwNS9ED0BfaoOs1tw8nJEU7cUbNKV5Ipa00RrnGPc8t');
+                        stripe.redirectToCheckout({ sessionId });
+                    }
+                });
+            } else {
+                console.error('Price ID is undefined');
+            }
+        } catch (error) {
+            console.error('Error adding checkout session: ', error);
         }
+    };
 
-
-    }
 
     return (
         <div className="planScreen">
@@ -102,7 +106,7 @@ const PlanScreen = () => {
                            <h5>{productData.name}</h5>
                             <h6>{productData.description}</h6>
                         </div>
-                        <button onClick={() => loadCheckout(productData.prices.priceId)}>Subscribe</button>
+                        <button onClick={() => loadCheckout(productData.prices[Object.keys(productData.prices)[0]].priceId)}>Subscribe</button>
                     </div>
                 )
 
