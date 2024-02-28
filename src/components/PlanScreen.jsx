@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './PlanScreen.css'
-import db, {empty_db} from "../../firebase.js";
-import { collection, query, where, doc, getDocs, getDoc, collectionGroup, getFirestore, onSnapshot, addDoc } from 'firebase/firestore';
+import db from "../../firebase.js";
+import { collection, query, where, doc, getDocs, onSnapshot, addDoc } from 'firebase/firestore';
 import {useSelector} from "react-redux";
 import {selectUser} from "../features/userSlice";
 import {loadStripe} from "@stripe/stripe-js";
@@ -36,42 +36,12 @@ const PlanScreen = () => {
             } catch (error) {
                 console.error('Error fetching subscriptions:', error);
             }
-
-            // try {
-            //     const subscriptionsCollectionRef = collection(doc(db, 'customers', user.uid), 'subscriptions');
-            //     const subscriptionsSnapshot = await getDocs(subscriptionsCollectionRef);
-            //
-            //     subscriptionsSnapshot.forEach((subscriptionDoc) => {
-            //         // setSubscription({
-            //         //     role: subscriptionDoc.role,
-            //         //     current_period_end: subscriptionDoc.canceled_at
-            //         // })
-            //         console.log('Subscription:', subscriptionDoc.data());
-            //
-            //         // console.log('Subscription Details', subscription.role)
-            //         // console.log('Subscription', subscriptionDoc.id, subscriptionDoc.data());
-            //         // You can set the subscription state or perform any other actions here
-            //     });
-            // } catch (error) {
-            //     console.error('Error fetching subscriptions:', error);
-            // }
         };
-
         fetchSubscriptions()
 
-        // db.collection('customers')
-        //     .doc(user.uid)
-        //     .collection('subscriptions')
-        //     .get()
-        //     .then(querySnapshot => {
-        //         querySnapshot.forEach(async subscription => {
-        //             console.log('Subscription', subscription)
-        //             // setSubscription({
-        //             //
-        //             // })
-        //         })
-        //     })
-    }, [])
+    }, [user.uid])
+
+    console.log("THE SUBSCRIPTIONS: ", subscription)
 
     useEffect(() => {
 
@@ -158,13 +128,15 @@ const PlanScreen = () => {
         <div className="planScreen">
             {Object.entries(products).map(([productId, productData]) => {
 
+                const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role)
+
                 return (
                     <div key={productId} className="planScreen_plan">
                         <div className="planScreen_info">
                            <h5>{productData.name}</h5>
                             <h6>{productData.description}</h6>
                         </div>
-                        <button onClick={() => loadCheckout(productData.prices[Object.keys(productData.prices)[0]].priceId)}>Subscribe</button>
+                        <button onClick={() => !isCurrentPackage && loadCheckout(productData.prices[Object.keys(productData.prices)[0]].priceId)}>{isCurrentPackage ? 'Current Package' : 'Subscribe'}</button>
                     </div>
                 )
 
