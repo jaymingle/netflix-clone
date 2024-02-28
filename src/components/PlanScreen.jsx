@@ -57,7 +57,8 @@ const PlanScreen = () => {
     console.log(products)
 
     const loadCheckout = async(priceId) => {
-        console.log('My Price ID: ', priceId)
+        // console.log('My Price ID: ', priceId)
+        const docRef = await db.collection()
     }
 
     return (
