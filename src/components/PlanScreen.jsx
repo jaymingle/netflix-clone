@@ -30,7 +30,10 @@ const PlanScreen = () => {
 
                     // Loop through price documents and store them in an object
                     pricesQuerySnapshot.forEach((priceDoc) => {
-                        pricesData[priceDoc.id] = priceDoc.data();
+                        pricesData[priceDoc.id] = {
+                            priceId: priceDoc.id,
+                            ...priceDoc.data()
+                        };
                     });
 
                     // Add prices data to the product's data
@@ -54,7 +57,7 @@ const PlanScreen = () => {
     console.log(products)
 
     const loadCheckout = async(priceId) => {
-
+        console.log('My Price ID: ', priceId)
     }
 
     return (
