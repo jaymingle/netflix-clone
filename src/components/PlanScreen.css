@@ -23,6 +23,10 @@
     cursor: pointer;
 }
 
+.planScreen_plan_disabled{
+    background-color: gray !important;
+}
+
 .planScreen_info{
 
 }
