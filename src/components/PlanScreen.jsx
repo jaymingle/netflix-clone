@@ -65,7 +65,7 @@ const PlanScreen = () => {
             {Object.entries(products).map(([productId, productData]) => {
 
                 return (
-                    <div className="planScreen_plan">
+                    <div key={productId} className="planScreen_plan">
                         <div className="planScreen_info">
                            <h5>{productData.name}</h5>
                             <h6>{productData.description}</h6>
