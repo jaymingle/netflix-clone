@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './PlanScreen.css'
-import db from "../../firebase.js";
+import db, {empty_db} from "../../firebase.js";
 import { collection, query, where, doc, getDocs, getDoc, collectionGroup, getFirestore } from 'firebase/firestore';
 import {useSelector} from "react-redux";
 import {selectUser} from "../features/userSlice";
@@ -62,27 +62,33 @@ const PlanScreen = () => {
 
     const loadCheckout = async(priceId) => {
         // console.log('My Price ID: ', priceId)
-        const docRef = await db.collection('customers')
-            .doc(user.uid)
-            .collection("checkout_sessions")
-            .add({
-                price: priceId,
-                success_url: window.location.origin,
-                cancel_url: window.location.origin,
+        try{
+            const docRef = await db.collection('customers')
+                .doc(user.uid)
+                .collection("checkout_sessions")
+                .add({
+                    price: priceId,
+                    success_url: window.location.origin,
+                    cancel_url: window.location.origin,
+                })
+
+            docRef.onSnapshot(async(snap) => {
+                const {error, sessionId} = snap.data();
+
+                if(error) {
+                    alert('An error occurred: ', error.message)
+                }
+
+                if(sessionId) {
+                    const stripe = await loadStripe("pk_test_51HwohvG5U8HFtRgC2HpETspfFOUrL2hnwlFvV1scwwgOQDFNkrkNjltrwNS9ED0BfaoOs1tw8nJEU7cUbNKV5Ipa00RrnGPc8t")
+                    stripe.redirectToCheckout({sessionId})
+                }
+
             })
+        }catch(err){
+            console.log("Error adding checkout session: ", error)
+        }
 
-        docRef.onSnapshot(async(snap) => {
-            const {error, sessionId} = snap.data();
-
-            if(error) {
-                alert('An error occurred: ', error.message)
-            }
-
-            if(sessionId) {
-                const stripe = await loadStripe()
-            }
-
-        })
 
     }
 
