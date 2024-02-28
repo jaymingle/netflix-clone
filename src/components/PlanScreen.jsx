@@ -13,9 +13,24 @@ const PlanScreen = () => {
 
     const [products, setProducts] = useState([])
     const user = useSelector(selectUser)
+    const [subscription, setSubscription] = useState(null)
 
     useEffect(() => {
+        db.collection('customers')
+            .doc(user.uid)
+            .collection('subscriptions')
+            .get()
+            .then(querySnapshot => {
+                querySnapshot.forEach(async subscription => {
+                    console.log('Subscription', subscription)
+                    // setSubscription({
+                    //
+                    // })
+                })
+            })
+    }, [])
 
+    useEffect(() => {
 
         const fetchProducts = async () => {
             try {
