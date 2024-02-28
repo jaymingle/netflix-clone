@@ -4,6 +4,7 @@ import db from "../../firebase.js";
 import { collection, query, where, doc, getDocs, getDoc, collectionGroup, getFirestore } from 'firebase/firestore';
 import {useSelector} from "react-redux";
 import {selectUser} from "../features/userSlice";
+import {loadStripe} from "@stripe/stripe-js";
 
 
 
@@ -78,7 +79,7 @@ const PlanScreen = () => {
             }
 
             if(sessionId) {
-
+                const stripe = await loadStripe()
             }
 
         })
